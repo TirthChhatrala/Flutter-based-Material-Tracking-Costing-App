@@ -10,7 +10,7 @@ void main() {
     ),
   );
 }
-
+ 
 class AppData extends ChangeNotifier {
   String _userRole = 'Operator';
   final List<MaterialItem> _materials = [
