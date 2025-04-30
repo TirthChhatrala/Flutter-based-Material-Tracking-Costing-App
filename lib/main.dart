@@ -186,7 +186,7 @@ class RoleSelectionScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Select Role'),
+        title: const Text('Login Page'),
       ),
       body: Center(
         child: Padding(
@@ -232,7 +232,18 @@ class HomeScreen extends StatelessWidget {
     final appData = Provider.of<AppData>(context);
     return Scaffold(
       appBar: AppBar(
-        title: Text('SmartFab - ${appData.userRole}'),
+        title: Text(' ${appData.userRole}'),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.logout),
+            onPressed: () {
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => const RoleSelectionScreen()),
+              );
+            },
+          ),
+        ],
       ),
       body: appData.userRole == 'Admin' ? const AdminDashboard() : const OperatorDashboard(),
     );
